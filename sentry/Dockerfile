@@ -4,7 +4,5 @@ FROM ${SENTRY_IMAGE:-getsentry/sentry:$SENTRY_VERSION}
 
 COPY . /usr/src/sentry
 
-ENV TZ=Asia/Taipei
-
 # Hook for installing additional plugins
 RUN if [ -s /usr/src/sentry/requirements.txt ]; then pip install -r /usr/src/sentry/requirements.txt; fi
