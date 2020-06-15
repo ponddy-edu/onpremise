@@ -192,7 +192,7 @@ services:
     depends_on:
       - kafka
       - redis
-  nginx:
+  reverse-proxy:
     << : *restart_policy
     ports:
       - '5555:443/tcp'
