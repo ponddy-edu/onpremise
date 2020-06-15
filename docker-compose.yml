@@ -173,13 +173,17 @@ services:
   nginx:
     << : *restart_policy
     ports:
-      - '5555:80/tcp'
+      - '5555:443/tcp'
     image: "nginx:1.16"
     volumes:
       - type: bind
         read_only: true
         source: ./nginx
         target: /etc/nginx
+      - type: bind
+        read_only: true
+        source: ./ssl
+        target: /var/ssl
     depends_on:
       - web
       - relay
